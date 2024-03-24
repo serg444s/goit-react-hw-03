@@ -1,9 +1,16 @@
-const Contact = ({ name, number }) => {
+import css from "./Contact.module.css";
+const Contact = ({ obj, handleDeleteContact }) => {
   return (
     <div>
-      <p>{name}</p>
-      <p>{number}</p>
-      <button type="button">Delete</button>
+      <p>{obj.name}</p>
+      <p>{obj.number}</p>
+      <button
+        className={css.btn}
+        type="button"
+        onClick={() => handleDeleteContact(obj.id)}
+      >
+        Delete
+      </button>
     </div>
   );
 };

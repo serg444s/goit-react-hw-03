@@ -1,0 +1,35 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 8px;
+  align-items: flex-start;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+label {
+  font-size: 18px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+input {
+  padding: 8px;
+  max-width: 100%;
+  border-radius: 8px;
+  font-size: 18px;
+  margin-left: 16px;
+}
+
+.button {
+  align-self: center;
+  background-color: rgb(116, 188, 201);
+}
+
+button:hover {
+  color: aliceblue;
+  background-color: blue;
+}

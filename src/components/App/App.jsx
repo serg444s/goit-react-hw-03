@@ -7,21 +7,33 @@ import ContactList from "../ContactList/ContactList";
 
 function App() {
   const [contacts, setContacts] = useState(contactsDefault);
+  const [inputValue, setInputValue] = useState("");
+
   const handleAddContact = (newContact) => {
-    setContacts(...contacts, { newContact });
+    setContacts((prevContacts) => {
+      return [...prevContacts, newContact];
+    });
   };
 
-  const [inputValue, setInputValue] = useState("");
-  const handleChange = (evt) => {
-    setInputValue(evt.target.value);
+  const handleDeleteContact = (id) => {
+    setContacts((prevContacts) => {
+      return prevContacts.filter((contact) => contact.id !== id);
+    });
   };
+
+  const visibleContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(inputValue.toLowerCase())
+  );
 
   return (
     <div>
       <h1>Phonebook</h1>
       <ContactForm handleAddContact={handleAddContact} />
-      <SearchBox inputValue={inputValue} handleChange={handleChange} />
-      <ContactList contacts={contactsDefault} />
+      <SearchBox inputValue={inputValue} handleChange={setInputValue} />
+      <ContactList
+        contacts={visibleContacts}
+        handleDeleteContact={handleDeleteContact}
+      />
     </div>
   );
 }

@@ -1,23 +1,21 @@
 import { nanoid } from "nanoid";
-
+import css from "./ContactForm.module.css";
 const ContactForm = ({ handleAddContact }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     const form = evt.target;
-    const name = form.elements.name;
-    const number = form.elements.number;
 
     handleAddContact({
-      login: name.value,
-      number: number.value,
+      name: form.elements.name.value,
+      number: form.elements.number.value,
       id: nanoid(),
     });
-    
+
     form.reset();
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={css.form}>
       <label>
         Name
         <input type="text" name="name"></input>
@@ -26,7 +24,9 @@ const ContactForm = ({ handleAddContact }) => {
         Number
         <input type="number" name="number"></input>
       </label>
-      <button type="submit">Add contact</button>
+      <button type="submit" className={css.button}>
+        Add contact
+      </button>
     </form>
   );
 };
