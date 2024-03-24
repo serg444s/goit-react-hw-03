@@ -3,6 +3,7 @@ import contactsDefault from "../../../contacts.json";
 import "./App.css";
 import ContactForm from "../ContactForm/ContactForm";
 import SearchBox from "../SearchBox/SearchBox";
+import ContactList from "../ContactList/ContactList";
 
 function App() {
   const [contacts, setContacts] = useState(contactsDefault);
@@ -20,7 +21,7 @@ function App() {
       <h1>Phonebook</h1>
       <ContactForm handleAddContact={handleAddContact} />
       <SearchBox inputValue={inputValue} handleChange={handleChange} />
-      {/* <ContactList /> */}
+      <ContactList contacts={contactsDefault} />
     </div>
   );
 }
