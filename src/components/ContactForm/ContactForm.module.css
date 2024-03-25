@@ -30,8 +30,6 @@ input {
 }
 
 button:hover {
-  color: aliceblue;
+  color: rgb(255, 255, 255);
   background-color: #213547;
-  border: none;
-  outline: none;
 }
