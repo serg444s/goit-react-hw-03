@@ -14,13 +14,11 @@ const ContactForm = ({ handleAddContact }) => {
   };
 
   const ContactSchema = Yup.object().shape({
-    name: Yup.string().min(3).max(50).required("Required"),
-    number: Yup.number()
-      .min(3)
-      .max(50)
-      .positive()
-      .integer()
-      .required("Required"),
+    name: Yup.string()
+      .min(3, "To Short!")
+      .max(50, "To Long!")
+      .required("Required!"),
+    number: Yup.number().positive().integer().required("Required!"),
   });
 
   const handleSubmit = (values, actions) => {
