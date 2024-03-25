@@ -5,12 +5,12 @@ const Contact = ({ obj, handleDeleteContact }) => {
   return (
     <div>
       <p>
-        <FaUser />
+        <FaUser className={css.icon} />
         {obj.name}
       </p>
 
       <p>
-        <FaPhone />
+        <FaPhone className={css.icon} />
         {obj.number}
       </p>
       <button
